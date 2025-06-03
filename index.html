@@ -241,8 +241,12 @@
         const nextMin = Math.round(nextMs / 60000)
         const hr = Math.floor(nextMin / 60)
         const min = nextMin % 60
+        const days = Math.floor(hr / 24)
+        const remHr = hr % 24
         const timeStr = nextMin <= 0 ? 'เร็วๆ นี้' :
-          (hr > 0 ? `${hr} ชม. ${min} นาที` : `${min} นาที`)
+          (days > 0 ? `${days} วัน ${remHr} ชม.` :
+           hr > 0 ? `${hr} ชม. ${min} นาที` :
+           `${min} นาที`)
         const card = document.createElement('div')
         card.className = 'card'
         card.innerHTML = `
