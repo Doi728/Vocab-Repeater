@@ -491,7 +491,7 @@
 
   <section id="add">
     <h2>☔ เพิ่มคำศัพท์ใหม่</h2>
-    <p>ใส่คำศัพท์และคำแปลตามรูปแบบที่แนะนำเพื่อเพิ่มหลายคำในครั้งเดียว:</p>
+    <p>ใส่คำศัพท์และคำแปลตามรูปแบบที่แนะนำเพื่อเพิ่มหลายคำในครั้งเดียว :</p>
     <textarea id="bulkInput" rows="10" placeholder="วิธีเพิ่ม:คำศัพท์ > เว้นวรรค 2 ครั้ง > คำแปล
 เช่น:apple  แอปเปิ้ล หรือ book. หนังสือ
       
@@ -862,8 +862,8 @@
       const currentScore = getScore();
 
       quizBox.innerHTML = `
-        <p>คะแนนสะสม: <b>${currentScore}</b> คะแนน</p>
-        <p><b>คำศัพท์:</b> <span style="font-size: 20px; color: var(--button);">${answer.word}</span></p>
+        <p>คะแนนสะสม : <b>${currentScore}</b> คะแนน</p>
+        <p><b>คำศัพท์ :</b> <span style="font-size: 20px; color: var(--button);">${answer.word}</span></p>
         <div style="margin-top: 25px;">
           ${choices.map(c =>
             `<button onclick="checkAnswerQuiz('${c.def.replace(/'/g, "\\'")}', '${answer.def.replace(/'/g, "\\'")}')">${c.def}</button>`
@@ -990,8 +990,8 @@
         const card = document.createElement('div');
         card.className = 'card';
 
-        const wordPart = showWord ? `<div class="main-content"><b>${v.word}</b></div>` : `<div class="main-content"><b>🔒 คำศัพท์ซ่อนอยู่</b></div>`;
-        const defPart = showDef ? `<div class="definition">${v.def}</div>` : `<div class="definition">❓❓ คำแปลซ่อนอยู่</div>`;
+        const wordPart = showWord ? `<div class="main-content"><b>${v.word}</b></div>` : `<div class="main-content"><b>🔒 คำศัพท์</b></div>`;
+        const defPart = showDef ? `<div class="definition">${v.def}</div>` : `<div class="definition">❓❓ คำแปล</div>`;
 
         card.innerHTML = `${wordPart}${defPart}`;
         box.appendChild(card);
