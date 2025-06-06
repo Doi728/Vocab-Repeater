@@ -908,7 +908,7 @@
         a.click(); // Programmatically click the link to trigger download
         document.body.removeChild(a); // Clean up
         URL.revokeObjectURL(url); // Release the URL object
-        alert(`ส่งออกข้อมูลเรียบร้อยแล้ว! ไฟล์: ${filename}`);
+        alert(`ส่งออกข้อมูลเรียบร้อยแล้ว! ไฟล์ : ${filename}`);
     }
 
     function importVocab(event) {
@@ -922,7 +922,7 @@
             try {
                 const importedData = JSON.parse(e.target.result);
                 if (!Array.isArray(importedData)) {
-                    alert("รูปแบบไฟล์ไม่ถูกต้อง: ต้องเป็น Array ของคำศัพท์");
+                    alert("รูปแบบไฟล์ไม่ถูกต้อง : ต้องเป็น Array ของคำศัพท์");
                     return;
                 }
 
@@ -1041,7 +1041,7 @@
       currentWriteAnswerVocab = vocab[randomIndex];
 
       writeAnswerBox.innerHTML = `
-        <p><b>คำแปล:</b> <span style="font-size: 20px; color: var(--button);">${currentWriteAnswerVocab.def}</span></p>
+        <p><b>คำแปล :</b> <span style="font-size: 20px; color: var(--button);">${currentWriteAnswerVocab.def}</span></p>
         <input type="text" id="writeAnswerInput" placeholder="พิมพ์คำศัพท์ที่ถูกต้อง..." style="text-align:center; margin-top: 20px;" onkeypress="if(event.keyCode==13) checkWriteAnswer()">
         <button onclick="checkWriteAnswer()">✅ ตรวจคำตอบ</button>
         <button onclick="renderWriteAnswerQuiz()">➡️ ข้าม</button>
