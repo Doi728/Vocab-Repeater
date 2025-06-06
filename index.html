@@ -1044,8 +1044,8 @@
       const currentScore = getScore();
 
       quizBox.innerHTML = `
-        <p>คะแนนสะสม: <b>${currentScore}</b> คะแนน</p>
-        <p><b>คำศัพท์:</b> <span style="font-size: 20px; color: var(--button); cursor: pointer;" onclick="speakText('${answer.word.replace(/'/g, "\\'")}')">${answer.word}</span></p>
+        <p>🌟 คะแนนสะสม : <b>${currentScore}</b> คะแนน</p>
+        <p><b>คำศัพท์ :</b> <span style="font-size: 20px; color: var(--button); cursor: pointer;" onclick="speakText('${answer.word.replace(/'/g, "\\'")}')">${answer.word}</span></p>
         <div style="margin-top: 25px;">
           ${choices.map(c =>
             `<button onclick="checkAnswerQuiz('${c.def.replace(/'/g, "\\'")}', '${answer.def.replace(/'/g, "\\'")}')">${c.def}</button>`
@@ -1060,7 +1060,7 @@
         alert("✅ ถูกต้อง! เก่งมาก!");
         score += 1;
       } else {
-        alert(`❌ ผิด! คำที่ถูกต้องคือ: "${correctDef}"`);
+        alert(`❌ ผิด! คำที่ถูกต้องคือ : "${correctDef}"`);
         score = Math.max(0, score - 1); // Don't go below 0
       }
       saveScore(score);
@@ -1083,7 +1083,7 @@
       currentWriteAnswerVocab = vocab[randomIndex];
 
       writeAnswerBox.innerHTML = `
-        <p><b>คำแปล:</b> <span style="font-size: 20px; color: var(--button); cursor: pointer;" onclick="speakText('${currentWriteAnswerVocab.def.replace(/'/g, "\\'")}')">${currentWriteAnswerVocab.def}</span></p>
+        <p><b>คำแปล :</b> <span style="font-size: 20px; color: var(--button); cursor: pointer;" onclick="speakText('${currentWriteAnswerVocab.def.replace(/'/g, "\\'")}')">${currentWriteAnswerVocab.def}</span></p>
         <input type="text" id="writeAnswerInput" placeholder="พิมพ์คำศัพท์ที่ถูกต้อง..." style="text-align:center; margin-top: 20px;" onkeypress="if(event.keyCode==13) checkWriteAnswer()">
         <button onclick="checkWriteAnswer()">✅ ตรวจคำตอบ</button>
         <button onclick="renderWriteAnswerQuiz()">➡️ ข้าม</button>
@@ -1101,7 +1101,7 @@
       if (currentWriteAnswerVocab && userAnswer.toLowerCase() === currentWriteAnswerVocab.word.toLowerCase()) {
         alert("✅ ถูกต้อง! เก่งมาก!");
       } else {
-        alert(`❌ ผิด! คำที่ถูกต้องคือ: "${currentWriteAnswerVocab.word}"`);
+        alert(`❌ ผิด! คำที่ถูกต้องคือ : "${currentWriteAnswerVocab.word}"`);
       }
       renderWriteAnswerQuiz();
     }
@@ -1143,8 +1143,8 @@
       }
 
       trueFalseBox.innerHTML = `
-        <p><b>คำศัพท์:</b> <span style="font-size: 20px; color: var(--button); cursor: pointer;" onclick="speakText('${displayedWord.replace(/'/g, "\\'")}')">${displayedWord}</span></p>
-        <p><b>คำแปล:</b> <span style="cursor: pointer;" onclick="speakText('${displayedDef.replace(/'/g, "\\'")}')">"${displayedDef}"</span></p>
+        <p><b>คำศัพท์ :</b> <span style="font-size: 20px; color: var(--button); cursor: pointer;" onclick="speakText('${displayedWord.replace(/'/g, "\\'")}')">${displayedWord}</span></p>
+        <p><b>คำแปล :</b> <span style="cursor: pointer;" onclick="speakText('${displayedDef.replace(/'/g, "\\'")}')">"${displayedDef}"</span></p>
         <div style="text-align:center; margin-top: 20px;">
           <button onclick="checkTrueFalseAnswer(${true}, ${correctAnswer})">✔️ จริง</button>
           <button onclick="checkTrueFalseAnswer(${false}, ${correctAnswer})">❌ เท็จ</button>
@@ -1156,7 +1156,7 @@
       if (userChoice === correctAnswer) {
         alert("✅ ถูกต้อง!");
       } else {
-        alert(`❌ ผิด! คำตอบที่ถูกต้องคือ: "${correctAnswer ? 'จริง' : 'เท็จ'}"`);
+        alert(`❌ ผิด! คำตอบที่ถูกต้องคือ : "${correctAnswer ? 'จริง' : 'เท็จ'}"`);
       }
       renderTrueFalseQuiz();
     }
@@ -1193,7 +1193,7 @@
       let cardsHtml = '';
       currentMatchPairs.forEach((pair, index) => {
         cardsHtml += `
-          <div class="match-card" data-index="${index}" data-original-word="${pair.originalWord}" onclick="selectMatchCard(this); speakText('${pair.value.replace(/'/g, "\\'")}')">
+          <div class="match-card" data-index="${index}" data-original-word="${pair.originalWord}" onclick="selectMatchCard(this)">
             ${pair.value}
           </div>
         `;
