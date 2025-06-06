@@ -207,6 +207,36 @@
         gap: 10px;
     }
 
+    /* Style for the import button (the label acting as a button) */
+    .button-group .button { /* Target the label with class 'button' inside button-group */
+      padding: 12px 20px;
+      font-size: 16px;
+      background: var(--button);
+      color: var(--button-text);
+      border: none;
+      border-radius: 6px;
+      margin: 8px 5px 8px 0; /* Match button margin */
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: inline-block; /* Make it behave like a button */
+      text-align: center; /* Center the text */
+      text-decoration: none; /* Remove underline if it were an anchor */
+      white-space: nowrap; /* Prevent text from wrapping if too long */
+      box-sizing: border-box; /* Include padding/border in element's total width/height */
+    }
+
+    .button-group .button:hover {
+      background: var(--button-hover);
+      transform: translateY(-1px);
+    }
+
+    .button-group .button:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+
     /* สไตล์ของ Card (สำหรับแสดงคำศัพท์) */
     .card {
       background: var(--accent3);
@@ -388,6 +418,11 @@
       textarea, button, .card {
         font-size: 15px;
       }
+      /* Ensure the import button also scales down */
+      .button-group .button {
+        font-size: 15px;
+        padding: 12px 15px;
+      }
       .card .main-content {
         font-size: 16px;
       }
@@ -421,6 +456,11 @@
       textarea, button, .card {
         font-size: 14px;
       }
+      /* Ensure the import button also scales down */
+      .button-group .button {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
       .card .main-content {
         font-size: 15px;
       }
@@ -437,7 +477,7 @@
       .flashcard-container {
         height: 160px;
       }
-      .button-group button {
+      .button-group button, .button-group .button { /* Apply to both button and label.button */
           flex-basis: 100%; /* Stack buttons on very small screens */
           margin-right: 0;
       }
@@ -540,7 +580,7 @@
 
   <section id="customReview" style="display:none">
     <h2>🎯 ทบทวนตามใจ</h2>
-    <p>เลือกสิ่งที่ต้องการแสดงในรายการทบทวน:</p>
+    <p>เลือกสิ่งที่ต้องการแสดงในรายการทบทวน :</p>
     <div class="checkbox-group">
       <label><input type="checkbox" id="toggleWord" checked onchange="renderCustomReview()"> แสดงคำศัพท์</label>
       <label><input type="checkbox" id="toggleDef" checked onchange="renderCustomReview()"> แสดงคำแปล</label>
@@ -728,7 +768,7 @@
             <div>
               <div class="main-content">${v.word}</div>
               <div class="definition">${v.def}</div>
-              <small>ทบทวนในอีก : ${timeStr}</small>
+              <small>ทบทวนในอีก: ${timeStr}</small>
             </div>
             <button onclick="deleteVocab('${v.word.replace(/'/g, "\\'")}')" style="flex-shrink: 0; margin-left:15px;">🗑️ ลบ</button>
           </div>
@@ -862,8 +902,8 @@
       const currentScore = getScore();
 
       quizBox.innerHTML = `
-        <p>คะแนนสะสม : <b>${currentScore}</b> คะแนน</p>
-        <p><b>คำศัพท์ :</b> <span style="font-size: 20px; color: var(--button);">${answer.word}</span></p>
+        <p>คะแนนสะสม: <b>${currentScore}</b> คะแนน</p>
+        <p><b>คำศัพท์:</b> <span style="font-size: 20px; color: var(--button);">${answer.word}</span></p>
         <div style="margin-top: 25px;">
           ${choices.map(c =>
             `<button onclick="checkAnswerQuiz('${c.def.replace(/'/g, "\\'")}', '${answer.def.replace(/'/g, "\\'")}')">${c.def}</button>`
