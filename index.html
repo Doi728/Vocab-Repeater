@@ -867,7 +867,7 @@
             <div>
               <div class="main-content">${v.word}</div>
               <div class="definition">${v.def}</div>
-              <small>ทบทวนในอีก: ${timeStr}</small>
+              <small>ทบทวนในอีก : ${timeStr}</small>
             </div>
             <button onclick="deleteVocab('${v.word.replace(/'/g, "\\'")}')" style="flex-shrink: 0; margin-left:15px;">🗑️ ลบ</button>
           </div>
@@ -960,10 +960,10 @@
                 });
 
                 saveVocab(currentVocab);
-                alert(`นำเข้าข้อมูลเสร็จสิ้น: เพิ่ม ${addedCount} คำ, อัปเดต ${updatedCount} คำ.${invalidCount > 0 ? ` (มี ${invalidCount} รายการที่ไม่ถูกต้องถูกข้าม)` : ''}`);
+                alert(`นำเข้าข้อมูลเสร็จสิ้น : เพิ่ม ${addedCount} คำ, อัปเดต ${updatedCount} คำ.${invalidCount > 0 ? ` (มี ${invalidCount} รายการที่ไม่ถูกต้องถูกข้าม)` : ''}`);
                 renderAllList(); // Refresh the list
             } catch (error) {
-                alert("เกิดข้อผิดพลาดในการอ่านไฟล์: " + error.message);
+                alert("เกิดข้อผิดพลาดในการอ่านไฟล์ : " + error.message);
                 console.error("Error importing file:", error);
             } finally {
                 // Clear the file input so the same file can be selected again
@@ -1002,8 +1002,8 @@
       const currentScore = getScore();
 
       quizBox.innerHTML = `
-        <p>คะแนนสะสม: <b>${currentScore}</b> คะแนน</p>
-        <p><b>คำศัพท์:</b> <span style="font-size: 20px; color: var(--button);">${answer.word}</span></p>
+        <p>🌟 คะแนนสะสม : <b>${currentScore}</b> คะแนน</p>
+        <p><b>คำศัพท์ :</b> <span style="font-size: 20px; color: var(--button);">${answer.word}</span></p>
         <div style="margin-top: 25px;">
           ${choices.map(c =>
             `<button onclick="checkAnswerQuiz('${c.def.replace(/'/g, "\\'")}', '${answer.def.replace(/'/g, "\\'")}')">${c.def}</button>`
@@ -1018,7 +1018,7 @@
         alert("✅ ถูกต้อง! เก่งมาก!");
         score += 1;
       } else {
-        alert(`❌ ผิด! คำที่ถูกต้องคือ: "${correctDef}"`);
+        alert(`❌ ผิด! คำที่ถูกต้องคือ : "${correctDef}"`);
         score = Math.max(0, score - 1); // Don't go below 0
       }
       saveScore(score);
@@ -1059,7 +1059,7 @@
       if (currentWriteAnswerVocab && userAnswer.toLowerCase() === currentWriteAnswerVocab.word.toLowerCase()) {
         alert("✅ ถูกต้อง! เก่งมาก!");
       } else {
-        alert(`❌ ผิด! คำที่ถูกต้องคือ: "${currentWriteAnswerVocab.word}"`);
+        alert(`❌ ผิด! คำที่ถูกต้องคือ : "${currentWriteAnswerVocab.word}"`);
       }
       renderWriteAnswerQuiz();
     }
@@ -1101,8 +1101,8 @@
       }
 
       trueFalseBox.innerHTML = `
-        <p><b>คำศัพท์:</b> <span style="font-size: 20px; color: var(--button);">${displayedWord}</span></p>
-        <p><b>คำแปล:</b> "${displayedDef}"</p>
+        <p><b>คำศัพท์ :</b> <span style="font-size: 20px; color: var(--button);">${displayedWord}</span></p>
+        <p><b>คำแปล :</b> "${displayedDef}"</p>
         <div style="text-align:center; margin-top: 20px;">
           <button onclick="checkTrueFalseAnswer(${true}, ${correctAnswer})">✔️ จริง</button>
           <button onclick="checkTrueFalseAnswer(${false}, ${correctAnswer})">❌ เท็จ</button>
@@ -1114,7 +1114,7 @@
       if (userChoice === correctAnswer) {
         alert("✅ ถูกต้อง!");
       } else {
-        alert(`❌ ผิด! คำตอบที่ถูกต้องคือ: "${correctAnswer ? 'จริง' : 'เท็จ'}"`);
+        alert(`❌ ผิด! คำตอบที่ถูกต้องคือ : "${correctAnswer ? 'จริง' : 'เท็จ'}"`);
       }
       renderTrueFalseQuiz();
     }
