@@ -1193,7 +1193,7 @@
       let cardsHtml = '';
       currentMatchPairs.forEach((pair, index) => {
         cardsHtml += `
-          <div class="match-card" data-index="${index}" data-original-word="${pair.originalWord}" onclick="selectMatchCard(this); speakText('${pair.value.replace(/'/g, "\\'")}')">
+          <div class="match-card" data-index="${index}" data-original-word="${pair.originalWord}" onclick="selectMatchCard(this)">
             ${pair.value}
           </div>
         `;
